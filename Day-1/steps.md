@@ -60,3 +60,5 @@ terraform destroy
 ```
 
 Use `terraform destroy` with caution, as it will permanently delete all resources defined in your Terraform configuration. Always review the plan before proceeding.
+
+The Terraform state file (`terraform.tfstate`) is a JSON file that Terraform uses to track the current state of your infrastructure. It maps real-world resources to your Terraform configuration, enabling Terraform to manage and update them efficiently. The state file helps Terraform determine what changes need to be made when running `terraform plan` or `terraform apply`.
