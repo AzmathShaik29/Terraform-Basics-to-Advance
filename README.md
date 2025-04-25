@@ -29,3 +29,17 @@ Level up your skills by provisioning an EC2 instance on AWS with Terraform. Lear
 #### Understanding Terraform State File Basics
 
 Discover the importance of Terraform state files. Learn how Terraform tracks the desired and current states to maintain infrastructure consistency and ensure smooth management.
+
+## Day 2: Advanced Terraform Configuration
+
+#### Exploring Providers and Resources
+
+Enhance your understanding of providers and resources. Learn how providers connect Terraform to various cloud platforms, and see how resources are used to define specific infrastructure components within your configurations.
+
+#### Working with Variables and Outputs in Terraform
+
+Unlock the potential of variables for creating dynamic and flexible configurations. Understand how to define, declare, and use variables efficiently. Dive into outputs to extract and display key information from your infrastructure.
+
+#### Using Conditional Expressions and Functions in Terraform
+
+Enhance your Terraform configurations with conditional expressions to incorporate logic into your code. Explore Terraform’s built-in functions for operations such as string manipulation, arithmetic, and more.
