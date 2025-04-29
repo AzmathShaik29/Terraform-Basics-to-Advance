@@ -61,3 +61,18 @@ Dive into variable-driven modules to customize behavior and increase module reus
 **Leveraging Outputs from Modules**
 
 Make your modules more informative by defining output values. Learn how to expose key resource attributes from modules to your root configuration, enabling seamless integration between different parts of your infrastructure.
+
+
+## Day 4: Collaboration and State Management
+
+**Understanding Terraform Backends**
+
+Explore the importance of Terraform backends in managing remote state. Learn how backends help maintain infrastructure consistency, enable collaboration, and ensure secure storage of the Terraform state file.
+
+**Configuring S3 as a Remote Backend**
+
+Gain practical experience in setting up an Amazon S3 bucket for storing Terraform state remotely. Discover how using S3 enhances team collaboration, provides versioning, and centralizes state management across environments.
+
+**Enabling State Locking with DynamoDB**
+
+Understand the concept of state locking to prevent simultaneous changes to infrastructure. Implement DynamoDB for state locking, ensuring that your Terraform operations are consistent and protected from race conditions during deployments.
