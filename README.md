@@ -43,3 +43,21 @@ Unlock the potential of variables for creating dynamic and flexible configuratio
 #### Using Conditional Expressions and Functions in Terraform
 
 Enhance your Terraform configurations with conditional expressions to incorporate logic into your code. Explore Terraform’s built-in functions for operations such as string manipulation, arithmetic, and more.
+
+## Day 3: Building Reusable Infrastructure with Terraform Modules
+
+**Creating Modular Infrastructure with Terraform Modules**
+
+Harness the power of modularity by breaking down your infrastructure into reusable, organized components. Learn how to define and structure Terraform modules for consistency and portability across environments.
+
+**Local Values and Data Sources**
+
+Simplify your configuration by using local values to reduce repetition and improve readability. Gain hands-on experience with data sources to dynamically retrieve and reference existing infrastructure or external information—enhancing flexibility and adaptability.
+
+**Using Variables and Inputs with Modules**
+
+Dive into variable-driven modules to customize behavior and increase module reusability. Understand how to define input variables within modules and pass dynamic values from the root configuration to make your infrastructure more scalable and configurable.
+
+**Leveraging Outputs from Modules**
+
+Make your modules more informative by defining output values. Learn how to expose key resource attributes from modules to your root configuration, enabling seamless integration between different parts of your infrastructure.
