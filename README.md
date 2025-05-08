@@ -76,3 +76,32 @@ Gain practical experience in setting up an Amazon S3 bucket for storing Terrafor
 **Enabling State Locking with DynamoDB**
 
 Understand the concept of state locking to prevent simultaneous changes to infrastructure. Implement DynamoDB for state locking, ensuring that your Terraform operations are consistent and protected from race conditions during deployments.
+
+## Day 5: Environment Management Using Terraform Workspaces
+
+Master the use of Terraform workspaces to efficiently manage multiple environments such as development, staging, and production. Learn how workspaces help isolate state files, allowing you to deploy the same infrastructure code to different environments without overwriting configurations.
+
+**Introduction to Terraform Workspaces**
+
+Gain insight into Terraform workspaces and their purpose in handling multiple environments. Understand how they help isolate infrastructure configurations for better environment segregation.
+
+**Creating and Switching Between Workspaces**
+
+Discover how to create and navigate between different workspaces using ```terraform workspace``` commands. Learn the importance of these actions in organizing environment-specific deployments.
+
+**Leveraging Workspaces for Environment Management**
+
+Explore how workspaces enhance environment management by maintaining separate state files. Understand their advantages in preventing configuration conflicts across development, staging, and production setups.
+
+## Day 6: Security Best Practices and Advanced Concepts
+
+Delve into security considerations and advanced Terraform features. Learn how to secure your infrastructure code and explore powerful functionalities that enhance your deployments.
+
+**Introduction to HashiCorp Vault**
+
+Explore the fundamentals of HashiCorp Vault, a robust solution for managing secrets and protecting sensitive data. Understand how it helps enforce security best practices in your infrastructure.
+
+**Secure Secret Management with Vault and Terraform**
+
+Discover how to integrate Terraform with Vault to handle secrets efficiently. Learn how Vault enables secure storage and dynamic retrieval of sensitive configuration data during deployments.
+
