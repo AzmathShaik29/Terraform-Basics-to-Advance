@@ -1,48 +1,77 @@
-## Method 1
+## Method 1: Using Multiple .tfvars Files
 
-- Whenever we need a different instance type we need to update/modify the terraform.tfvars file
+- To manage different instance types for various environments, you can avoid editing terraform.tfvars directly.
 
-- Instead of changing in "terraform.tfvars" you can do the below steps:
-	- Create a file called "stage.tfvars", "dev.tfvars" and "prod.tfvars"
-- While executing the apply command, follow the below command:
+- Instead, create separate variable definition files for each environment, such as:
 
-```terraform apply -var-file=stage.tfvars```
+	- ```stage.tfvars```
 
-```terraform apply -var-file=dev.tfvars```
+	- ```dev.tfvars```
 
-```terraform apply -var-file=prod.tfvars```
+	- ```prod.tfvars```
 
-## Method 2
-
-In this we introduced the workspace, with the help of workspace we can update/modify the created environment without changing the root environment.
-
-**How to create a new environment?**
-
-```terraform workspace new stage```
-
-```terraform workspace new dev```
-
-```terraform workspace new prod```
+Use the appropriate file when running Terraform commands:
+```bash
+terraform apply -var-file=stage.tfvars
+terraform apply -var-file=dev.tfvars
+terraform apply -var-file=prod.tfvars
+```
+- This approach keeps environment configurations separate and easy to manage.
 
 
-**How to switch to a particular environment?**
+## Method 2: Using Terraform Workspaces
+Terraform workspaces allow you to manage multiple environments without modifying the root module.
 
-```terraform workspace select stage```
+**Create a New Workspace**
 
-```terraform workspace select dev```
+```bash
+terraform workspace new stage
+terraform workspace new dev
+terraform workspace new prod
+```
 
-```terraform workspace select prod```
+**Switch Between Workspaces**
+```bash
+terraform workspace select stage
+terraform workspace select dev
+terraform workspace select prod
+```
 
+Check the Current Workspace
+```bash
+terraform workspace show
+```
 
-**How to check in which environment we are?**
+- When a workspace is created, Terraform automatically generates a directory called ```terraform.tfstate.d``` to store state files separately per workspace.
 
-```terraform workspace show```
+- You can still define common variables (e.g., AMI ID, instance type) in ```terraform.tfvars```, and values can be customized per workspace.
 
-- When you create the environment automatically a file called ```terraform.tfstate.d``` will be created.
-- In ```terraform.tfvars``` you can change the "ami id" and "instance type" as per the requirement.
-- When you run the terraform apply in any one environment a separate ```terraform.tfstate``` will be created and it will create in a particular folder/environment and not in the root of the project.
+- Each environment will maintain its own isolated ```terraform.tfstate file```, preventing state conflicts.
 
+## Method 3: Using Lookup Function in Module
 
-## Method 3
+- Instead of defining ```instance_type``` directly in ```terraform.tfvars```, you can use a lookup() function within your module configuration.
 
-- Remove the value of instance_type from ```terraform.tfvar```, so that it will pick from the lookup function in the module block and based on the environment you are in it will take that as primary and create the EC2 instance with the mentioned instance_type.
+- This enables Terraform to dynamically select values (like ```instance_type```) based on the current environment.
+
+- Example: the module can read from a map of environment-specific values and apply the correct configuration without hardcoding or manual changes.
+
+**Benefits**
+
+- Simplifies variable management
+
+- Automatically picks the correct configuration based on the current workspace or environment
+
+- Reduces human error by eliminating hardcoded values
+
+**Conclusion**
+
+Each method above is useful in different scenarios:
+
+- Method 1: Great for simple setups or when you want full control over variable files.
+
+- Method 2: Ideal for team environments and CI/CD workflows that need clean state separation.
+
+- Method 3: Best for advanced automation and reducing manual input.
+
+Choose the method—or a combination—that fits your infrastructure strategy and scaling needs.
